@@ -3,17 +3,32 @@
 import csv
 
 
-class City:
+class City():
     # def __init__(self, *data):
     #     self.data = data
     # def __init__(self, name, lat, lon):
     #     self.name = name
     #     self.lat = lat
     #     self.lon = lon
-    def __init__(self, name, lat, lon, *data):
+    # def __init__(*args):
+    #     self.city = args.get('city')
+    #     self.lat = args.get('lat')
+    #     self.lng = args.get('lng')
+    # def __init__(self, city, lat, lng, *data):
+    #     self.city = city
+    #     self.lat = lat
+    #     self.lng = lng
+    # def __init__(self, city, lat, lng):
+    #     self.city = getattr('city')
+    #     self.lat = getattr('lat')
+    #     self.lng = getattr('lng')
+    def __init__(self, name, lat, lon):
         self.name = name
         self.lat = lat
         self.lon = lon
+
+    def __repr__(self)
+    # return f'City("{self.name}", {self.lat},{self.lon}),'
 
 
 # We have a collection of US cities with population over 750,000 stored in the
@@ -37,14 +52,21 @@ def cityreader(cities=[]):
   # `cities` list
     with open('cities.csv', 'r') as file:
         place = csv.reader(file)
+        # cities = [City(row.city, row.lat, row.lng) for row in place]
+        next(place)
         for row in place:
-            # cities = City(row.name, row.lat, row.lon)
+            # cities = [City(row.city, row.lat, row.lng)]
             # cities = City(name, lat, lon)
-            cities = row(City.name, City.lat, City.lon)
+            # cities = [row(City.name, City.lat, City.lon)]
+            # cities = row(City.name, City.lat, City.lon)
             # cities = (','.join(row[1:]))
-            # cities = City(row)
+            cities.append(City(row[0], row[3], row[4]))
             # cities = City(*row[0:3])
             # print(','.join(row))
+            # print(row[0:5])
+            # print([City.row])
+            # print(City(row.city, row.lat, row.lng))
+            # print(City(row))
     return cities
 
 

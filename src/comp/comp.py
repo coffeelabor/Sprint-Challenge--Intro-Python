@@ -70,7 +70,8 @@ print("Names and ages between 27 and 32:")
 # f = [(x.name, x.age) for x in humans if x.age.range(27, 33)]
 # f = [(x.name, x.age.range(27, 33)) for x in humans]
 # f = [(x.name, x.age) for x in humans.age.range(27, 33)]
-f = [(x.name, x.age) for x in humans if int(x.age) > 27 or int(x.age) < 33]
+# f = [(x.name, x.age) for x in humans if int(x.age) > 26 or int(x.age) < 34]
+f = [(x.name, x.age) for x in humans if(x.age >= 27 and x.age <= 32)]
 print(f)
 
 
@@ -78,7 +79,9 @@ print(f)
 # list, except with all the names uppercase and the ages with 5 added to them.
 # The "humans" list should be unmodified.
 print("All names uppercase:")
-g = [x.name.upper() for x in humans]
+# AGE!!!!!
+g = [(x.name.upper(), x.age+5) for x in humans]
+# g = [(x.name, x.age) for x in humans x.name.upper() x.age+5]
 print(g)
 
 
